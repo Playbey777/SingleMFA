@@ -1,0 +1,9 @@
+name: SingleMFA
+version: 1.0
+main: org.playbey.singlemfa.SingleMFA
+api-version: 1.16
+depend: [Vault]
+commands:
+  mfa:
+    description: SingleMFA command
+    permission: singlemfa.admin

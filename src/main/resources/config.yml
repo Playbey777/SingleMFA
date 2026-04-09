@@ -1,0 +1,27 @@
+modules:
+  mobs:
+    enabled: true
+    anti-abuse-spawner: true
+    chat-message: true
+    actionbar-message: true
+    list:
+      ZOMBIE: "10-20"
+      SKELETON: "15"
+      CREEPER: "5-10"
+  blocks:
+    enabled: true
+    anti-abuse-placed: true
+    chat-message: false
+    actionbar-message: true
+    list:
+      DIAMOND_ORE: "50-100"
+      EMERALD_ORE: "60-120"
+      COAL_ORE: "5"
+
+multipliers:
+  permissions:
+    "singlemfa.vip": 1.5
+    "singlemfa.premium": 2.0
+  excluded-sources:
+    - "COW"
+    - "DIRT"

@@ -1,0 +1,7 @@
+prefix: "&#FFAA00[SingleMFA] "
+reload: "&#00FF00Плагин успешно перезагружен."
+no-permission: "&#FF0000У вас нет прав для использования этой команды."
+mob-kill-chat: "&#FFFFFFВы получили &#FFFF00%amount% &#FFFFFFза убийство &#FFFF00%source%&#FFFFFF."
+mob-kill-actionbar: "&#00FF00+%amount% $"
+block-break-chat: "&#FFFFFFВы получили &#FFFF00%amount% &#FFFFFFза добычу &#FFFF00%source%&#FFFFFF."
+block-break-actionbar: "&#00FF00+%amount% $"

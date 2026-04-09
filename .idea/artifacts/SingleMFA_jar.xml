@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SingleMFA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SingleMFA_jar</output-path>
+    <root id="archive" name="SingleMFA.jar">
+      <element id="module-output" name="SingleMFA" />
+    </root>
+  </artifact>
+</component>
