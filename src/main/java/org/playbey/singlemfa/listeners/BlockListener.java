@@ -13,7 +13,7 @@ import org.playbey.singlemfa.SingleMFA;
 public class BlockListener implements Listener {
 
     private final SingleMFA plugin;
-    private static final String META_KEY = "singlemfa_placed";
+    public static final String META_KEY = "singlemfa_placed";
 
     public BlockListener(SingleMFA plugin) {
         this.plugin = plugin;

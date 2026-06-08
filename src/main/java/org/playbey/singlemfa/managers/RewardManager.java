@@ -18,26 +18,44 @@ public class RewardManager {
     }
 
     public void processReward(Player player, String source, String type) {
+        processReward(player, source, type, false);
+    }
+
+    public double processReward(Player player, String source, String type, boolean silent) {
         ConfigManager cm = plugin.getConfigManager();
         if (!cm.getConfig().getBoolean("modules." + type + ".enabled", true)) {
-            return;
+            return 0.0;
         }
 
-        String rangeString = cm.getConfig().getString("modules." + type + ".list." + source);
+        String path = "modules." + type + ".list." + source;
+        String rangeString;
+        String displayName = source;
+
+        if (cm.getConfig().isConfigurationSection(path)) {
+            rangeString = cm.getConfig().getString(path + ".reward");
+            displayName = cm.getConfig().getString(path + ".name", source);
+        } else {
+            rangeString = cm.getConfig().getString(path);
+        }
+
         if (rangeString == null || rangeString.isEmpty()) {
-            return;
+            return 0.0;
         }
 
         double baseAmount = parseAmount(rangeString);
-        if (baseAmount <= 0) return;
+        if (baseAmount <= 0) return 0.0;
 
         double finalAmount = applyMultipliers(player, source, baseAmount, type);
         finalAmount = Math.round(finalAmount * 100.0) / 100.0;
 
         if (finalAmount > 0) {
             plugin.getEconomy().depositPlayer(player, finalAmount);
-            sendMessages(player, source, finalAmount, type);
+            if (!silent) {
+                sendMessages(player, displayName, finalAmount, type);
+            }
         }
+
+        return finalAmount;
     }
 
     private double applyMultipliers(Player player, String source, double baseAmount, String type) {
